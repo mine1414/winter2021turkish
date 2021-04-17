@@ -1,0 +1,33 @@
+package day40_exception;
+
+public class Exception06_Soru {
+
+	public static void main(String[] args) {
+
+		System.out.print(exceptions());
+	}
+
+	@SuppressWarnings("finally")
+	public static String exceptions() {
+		String result = "";
+		String v = null;
+
+		try {
+			try {
+				result = result + "a";
+				v.length();   //NullPointerException verir try body'si calismaz
+				result = result + "b";
+			} catch (NullPointerException e) {
+				result = result + "c";
+			} finally {
+				result = result + "d";
+				throw new Exception(); //exception atar ve catch calisir
+			}
+		} catch (Exception e) {
+			result = result + "e";
+		}
+		return result;
+
+	}
+
+}
